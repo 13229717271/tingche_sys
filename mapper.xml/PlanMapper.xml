@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.PlanMapper">
+
+    <select id="queryPlanList" resultType="Plan">
+             select * from plan
+    </select>
+
+    <select id="queryPlanById" resultType="Plan">
+        select * from plan where pid = #{pid}
+    </select>
+    <insert id="addPlan" parameterType="Plan">
+        insert into plan (pid,pname,postrequire,pnum,apply,applicant)
+        values (#{pid},#{pname},#{postrequire},#{pnum},#{apply},#{applicant})
+    </insert>
+    <update id="updatePlan" parameterType="Plan">
+        update plan set pid=#{pid},pname=#{pname},postrequire=#{postrequire},pnum=#{pnum},apply=#{apply},applicant=#{applicant} where pid = #{pid}
+    </update>
+
+    <delete id="deletePlan" parameterType="String">
+        delete from plan where pid=#{pid}
+    </delete>
+
+
+</mapper>

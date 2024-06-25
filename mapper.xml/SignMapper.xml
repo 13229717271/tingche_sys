@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.SignMapper">
+
+    <select id="querySignList" resultType="Sign">
+             select * from sign
+    </select>
+
+    <insert id="addSign" parameterType="Sign">
+        insert into sign (sid,postname,skill,applicant,applytime)
+        values (#{sid},#{postname},#{skill},#{applicant},#{applytime})
+    </insert>
+
+    <delete id="deleteSign" parameterType="int">
+        delete from sign where sid =#{sid}
+    </delete>
+
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.RegisterMapper">
+
+    <select id="findStudent" parameterType="String" resultType="Register">
+        select * from register where username=#{username} AND password=#{password}
+    </select>
+    <insert id="addRegister" parameterType="Register">
+        insert into register (stuno,username,password,major,dep,classname,grade,phone,email,roleid)
+        values (#{stuno},#{username},#{password},#{major},#{dep},#{classname},#{grade},#{phone},#{email},#{roleid})
+    </insert>
+    <select id="queryRegisterList" resultType="Register">
+        select * from register
+    </select>
+    <update id="updateRegister" parameterType="Register">
+        update register set stuno=#{stuno},username=#{username},password=#{password},major=#{major},dep=#{dep},classname=#{classname},grade=#{grade},phone=#{phone},email=#{email},roleid=#{roleid} where stuno = #{stuno}
+    </update>
+    <delete id="deleteRegister" parameterType="String">
+        delete from register where stuno =#{stuno}
+    </delete>
+
+</mapper>
